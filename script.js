@@ -1,32 +1,24 @@
-const randomNumber = Math.floor(Math.random()*20);
-console.log(randomNumber);
-function gameOver(){
-    const heading = document.createElement("h1");
-    heading.textContent="Game Over";
-    document.body.innerHTML="";
-    document.body.appendChild(heading);
-}
-function checkTheNumber(){
-    const userEnteredNumber = document.getElementById("input-display");
-    var score = document.getElementById("score-number");
-    if(score.textContent>0){
-        if(randomNumber==userEnteredNumber.value){
-        const gameDecision = document.getElementById("game-decision");
-        gameDecision.textContent = "You Won";
-        return;
-        }else if(randomNumber>userEnteredNumber.value){
-            const gameDecision = document.getElementById("game-decision");
-            gameDecision.textContent = "Too Less";
-            score.textContent -= 20;
-        }else{
-            const gameDecision = document.getElementById("game-decision");
-            gameDecision.textContent = "Too Large";
-            score.textContent -= 20;
-        }
+const min = 1;
+const max = 20;
+
+let number = Math.floor(Math.random()*(max-min)+min);
+let running = true;
+let attempt = 0;
+let guess;
+
+while(running){
+    guess = window.prompt(`Enter a number between ${min}-${max}.`);
+    if(isNaN(guess) || guess<min ||guess>max){
+        window.alert("Enter a valid number");
+    }else if(guess<number){
+        attempt++;
+        window.alert("Too low, try a higher number.");
+    }else if(guess>number){
+        attempt++;
+        window.alert("Too high, try a lower number.");
+    }else{
+        attempt++;
+        window.alert(`CORRECT! You took ${attempt} attempts to guess ${number}`);
+        running=false;
     }
-    gameOver();
-}
-
-function resetGame(){
-
 }
