@@ -1,0 +1,28 @@
+.top-row{
+    display: flex;
+    justify-content: space-between;
+    padding: 25px;
+}
+.main-head{
+    display: flex;
+    justify-content: center;
+}
+.middle-row{
+    display: flex;
+    justify-content: center;
+
+    /* justify-content: space-around; */
+}
+.min-max{
+    padding-left: 5em;
+    padding-right: 5em;
+}
+.last-row{
+    display: flex;
+    justify-content: center;
+}
+.submit-btn{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
